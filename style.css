@@ -128,8 +128,10 @@ button {
 }
 
 .movies-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap:1px;
+    place-items: center;
 }
 
 .movie {
@@ -139,7 +141,8 @@ button {
     display: flex;
     align-items: end;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(109, 109, 109, 0.397);
+    box-shadow: 5px 5px 10px rgba(109, 109, 109, 0.589);
+    margin-bottom: 15px;
     /* padding: 10px 0; */
 
     img {
@@ -160,9 +163,135 @@ button {
     text-align: center;
     color: #fff;
     margin: 0 auto;
-    background-color: #000000;
+    background-color: #00000059;
     width: 100%; height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .nav-focus {
+      gap: 2rem;
+      width: 65%;
+    }
+  
+    .nav-links {
+      gap: 1.5rem;
+      font-size: 16px;
+    }
+  
+    .header-title h1 {
+      font-size: 4rem;
+    }
+  
+    .header-description p {
+      width: 60%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 10px 2rem;
+    }
+  
+    .nav-focus {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: 1rem;
+    }
+  
+    .nav-links {
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 14px;
+    }
+  
+    .navbar-logo {
+      font-size: 1.5rem;
+    }
+  
+    .navbar-logo img {
+      width: 3rem;
+    }
+  
+    header {
+      height: auto;
+      padding: 2rem;
+      text-align: center;
+    }
+  
+    .header-title {
+      width: 100%;
+    }
+  
+    .header-title h1 {
+      font-size: 3rem;
+    }
+  
+    .header-description p {
+      width: 100%;
+      font-size: 0.95rem;
+    }
+  
+    .header-btns {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+    }
+  
+    button {
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .header-title h1 {
+      font-size: 2.2rem;
+      letter-spacing: 3px;
+    }
+  
+    .header-description p {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      font-size: 16px;
+      height: 36px;
+    }
+  }
+  
