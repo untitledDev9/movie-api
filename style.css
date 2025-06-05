@@ -186,6 +186,26 @@ button {
 
 
 
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    font-size: 20px;
+  }
+  
+  #menuToggle {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+  }
+
+
+
+
+
+
+
 
 
 
@@ -215,62 +235,37 @@ button {
     }
   }
   
+
+  
+  /* Mobile Styles */
   @media (max-width: 768px) {
-    nav {
+    .nav-links {
+      display: none;
       flex-direction: column;
-      align-items: flex-start;
       gap: 1rem;
-      padding: 10px 2rem;
+      background-color: #000;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+  
+    .nav-links.show {
+      display: flex;
+    }
+  
+    #menuToggle {
+      display: block;
     }
   
     .nav-focus {
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      gap: 1rem;
-    }
-  
-    .nav-links {
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 14px;
-    }
-  
-    .navbar-logo {
-      font-size: 1.5rem;
-    }
-  
-    .navbar-logo img {
-      width: 3rem;
-    }
-  
-    header {
-      height: auto;
-      padding: 2rem;
-      text-align: center;
-    }
-  
-    .header-title {
       width: 100%;
     }
   
-    .header-title h1 {
-      font-size: 3rem;
-    }
-  
-    .header-description p {
-      width: 100%;
-      font-size: 0.95rem;
-    }
-  
-    .header-btns {
-      flex-direction: column;
-      align-items: center;
-      margin-top: 1rem;
-    }
-  
-    button {
-      width: 80%;
+    nav {
+      position: relative;
     }
   }
   
