@@ -9,14 +9,10 @@ const popular = document.querySelectorAll('.popular')
     element.addEventListener('click', ()=> {
         getMovies(element.value)
     })
-    // console.log(element.value, 'fff');
 })
 
 
-
-
-
-function getMovies (value){
+function getMovies (value, shouldChange){
     fetch(`https://api.themoviedb.org/3/movie/${value}?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c`)
     .then(res => res.json())
     .then(data => {
@@ -25,10 +21,8 @@ function getMovies (value){
         let changer = Math.floor(Math.random() * movies.length)
         let randomMovie = movies[changer];
 
-        console.log(randomMovie.title);       
-        console.log(randomMovie.poster_path); 
 
-        headerImage.innerHTML=''
+        if(shouldChange == 'true'){
         headerImage.innerHTML = `  
         <div class="header-content">
             <div class="headImg">
@@ -53,10 +47,9 @@ function getMovies (value){
             </div>
         </div>
         `
-
+        }
         container.innerHTML = ''
         movies.forEach(element => { 
-            console.log(element);  
             container.innerHTML += `
                 <div class="movie">
                <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${element.title}">
@@ -69,8 +62,6 @@ function getMovies (value){
 }
 
 
-
-
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
@@ -80,4 +71,4 @@ menuToggle.addEventListener('click', () => {
 });
 
 
-getMovies('popular')
+getMovies('popular', 'true')
