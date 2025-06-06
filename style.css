@@ -148,6 +148,7 @@ button {
     grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
     gap: 1.5rem;
     padding: 1rem;
+    place-items: center;
 }
 
 .movie {
