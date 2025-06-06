@@ -1,12 +1,23 @@
 
 const container = document.getElementById('container')
 const headerImage = document.getElementById('headerImage')
+const popular = document.querySelectorAll('.popular')
+
+
+ popular.forEach(element => {
+
+    element.addEventListener('click', ()=> {
+        getMovies(element.value)
+    })
+    // console.log(element.value, 'fff');
+})
 
 
 
 
-function getMovies (){
-    fetch('https://api.themoviedb.org/3/movie/top_rated?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c')
+
+function getMovies (value){
+    fetch(`https://api.themoviedb.org/3/movie/${value}?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c`)
     .then(res => res.json())
     .then(data => {
 
@@ -17,7 +28,7 @@ function getMovies (){
         console.log(randomMovie.title);       
         console.log(randomMovie.poster_path); 
 
-
+        headerImage.innerHTML=''
         headerImage.innerHTML = `  
         <div class="header-content">
             <div class="headImg">
@@ -43,14 +54,9 @@ function getMovies (){
         </div>
         `
 
-
-        movies.forEach(element => {
-            
-            
-            console.log(element);
-            
-            
-            
+        container.innerHTML = ''
+        movies.forEach(element => { 
+            console.log(element);  
             container.innerHTML += `
                 <div class="movie">
                <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${element.title}">
@@ -74,4 +80,4 @@ menuToggle.addEventListener('click', () => {
 });
 
 
-getMovies()
+getMovies('popular')
