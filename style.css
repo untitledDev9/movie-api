@@ -223,6 +223,28 @@ button {
     align-items: center;
 }
 
+  .watchNow{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 40px;
+    margin: 10px 0;
+
+    button {
+      width: 17rem;
+      height: 3rem;
+      background-color: #00000031;
+      color: #b8b8b8;
+      border: none;
+      transition: all .3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #000000;
+      color: #fff;
+    }
+  }
+
 
 
 
