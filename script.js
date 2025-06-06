@@ -12,7 +12,7 @@ function getMovies (){
         data.results.forEach(element => {
             container.innerHTML += `
                 <div class="movie">
-                <img src="./3d-rendering-person-watching-movie-with-popcorn.jpg" alt="">
+               <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${element.title}">
                 <p class="movie-title">${element.title}</p>
                 </div>
             `
@@ -20,18 +20,6 @@ function getMovies (){
         
     })
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
