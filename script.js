@@ -19,7 +19,8 @@ console.log(randomMovie.poster_path);
 
         headerImage.innerHTML = `  <div class="header-content">
             <div class="headImg">
-               <img src="https://image.tmdb.org/t/p/w500${randomMovie.poster_path}" alt="${randomMovie.title}">
+               <img src="https://image.tmdb.org/t/p/w1280${randomMovie.backdrop_path
+}" alt="${randomMovie.title}">
             </div>
             <div class="header-text">
              <div class="header-title">
