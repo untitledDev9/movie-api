@@ -169,6 +169,7 @@ header {
     width: 240px;
     position: relative;
     display: flex;
+    /* gap: px; */
     align-items: end;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(109, 109, 109, 0.589);
@@ -342,8 +343,8 @@ header {
 }
 
 .movie {
-  height: 270px;
-  width: 220px;
+  height: 200px;
+  width: 150px;
   box-shadow: 5px 5px 10px rgba(109, 109, 109, 0);
 }
 

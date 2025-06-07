@@ -47,8 +47,8 @@ function getMovies(shouldChange) {
         }
   
 
-        $('.owl-carousel').trigger('destroy.owl.carousel');
-        $('.owl-carousel').html(''); 
+        // $('.owl-carousel').trigger('destroy.owl.carousel');
+        // $('.owl-carousel').html(''); 
   
 
         movies.forEach(movie => {
@@ -66,16 +66,16 @@ function getMovies(shouldChange) {
         });
   
 
-        $('.owl-carousel').owlCarousel({
-          loop: false,
-          margin: 10,
-          responsiveClass: true,
-          responsive: {
-            0: { items: 1, nav: false },
-            600: { items: 3, nav: false },
-            1000: { items: 5, nav: false }
-          }
-        });
+        // $('.owl-carousel').owlCarousel({
+        //   loop: false,
+        //   margin: 10,
+        //   responsiveClass: true,
+        //   responsive: {
+        //     0: { items: 3, nav: true },
+        //     600: { items: 3, nav: false },
+        //     1000: { items: 5, nav: false }
+        //   }
+        // });
       });
   }
 
@@ -91,7 +91,7 @@ function getMovies(shouldChange) {
 
 
 
-        $('.owl-carousel').trigger('destroy.owl.carousel');
+        // $('.owl-carousel').trigger('destroy.owl.carousel');
       
 
         movies.forEach(movie => {
@@ -109,16 +109,16 @@ function getMovies(shouldChange) {
           });
 
 
-          $('.owl-carousel').owlCarousel({
-            loop: false,
-            margin: 10,
-            responsiveClass: true,
-            responsive: {
-              0: { items: 1, nav: false },
-              600: { items: 3, nav: false },
-              1000: { items: 5, nav: false }
-            }
-          });
+        //   $('.owl-carousel').owlCarousel({
+        //     loop: false,
+        //     margin: 10,
+        //     responsiveClass: true,
+        //     responsive: {
+        //       0: { items: 1, nav: false },
+        //       600: { items: 3, nav: false },
+        //       1000: { items: 5, nav: false }
+        //     }
+        //   });
 
         console.log(data);
         
@@ -143,7 +143,7 @@ function getMovies(shouldChange) {
 
 
 
-        $('.owl-carousel').trigger('destroy.owl.carousel');
+        // $('.owl-carousel').trigger('destroy.owl.carousel');
       
 
         movies.forEach(movie => {
@@ -161,16 +161,16 @@ function getMovies(shouldChange) {
           });
 
 
-          $('.owl-carousel').owlCarousel({
-            loop: false,
-            margin: 10,
-            responsiveClass: true,
-            responsive: {
-              0: { items: 1, nav: false },
-              600: { items: 3, nav: false },
-              1000: { items: 5, nav: false }
-            }
-          });
+        //   $('.owl-carousel').owlCarousel({
+        //     loop: false,
+        //     margin: 10,
+        //     responsiveClass: true,
+        //     responsive: {
+        //       0: { items: 1, nav: false },
+        //       600: { items: 3, nav: false },
+        //       1000: { items: 5, nav: false }
+        //     }
+        //   });
 
         console.log(data);
         
@@ -193,7 +193,8 @@ function getMovies(shouldChange) {
 
 
         $('.owl-carousel').trigger('destroy.owl.carousel');
-      
+     
+        
 
         movies.forEach(movie => {
             if (movie.poster_path) {
@@ -211,11 +212,11 @@ function getMovies(shouldChange) {
 
 
           $('.owl-carousel').owlCarousel({
-            loop: false,
+            loop: true,
             margin: 10,
             responsiveClass: true,
             responsive: {
-              0: { items: 1, nav: false },
+              0: { items: 2.5, nav: false },
               600: { items: 3, nav: false },
               1000: { items: 5, nav: false }
             }
