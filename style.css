@@ -60,6 +60,7 @@ body {
 .navbar-search {
   display: flex;
   align-items: center;
+  gap: 30px;
 }
 
 .ri-search-line {
@@ -211,30 +212,6 @@ header {
   background-color: #0000002f;
   height: 50px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: white;
-    font-size: 20px;
-  }
   
   #menuToggle {
     display: none;
@@ -242,6 +219,10 @@ header {
     color: #fff;
   }
 
+  .nav-links {
+    display: flex;
+    transition: all 0.3s ease-in-out;
+  }
 
 
 
@@ -347,6 +328,31 @@ header {
   width: 150px;
   box-shadow: 5px 5px 10px rgba(109, 109, 109, 0);
 }
+
+#menuToggle {
+  display: block;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  gap: 40px;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+/* Toggle display when JS adds .show */
+.nav-links.show {
+  display: flex;
+}
+
 
 
 }
