@@ -349,17 +349,12 @@ header {
 }
 
 
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
+@media(max-width: 400px){
+  .movie {
+    height: 180px;
+    width: 130px;
+  }
 }
