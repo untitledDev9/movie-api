@@ -11,73 +11,72 @@ const popular = document.querySelectorAll('.popular')
     })
 })
 
-
-function getMovies (value, shouldChange){
+function getMovies(value, shouldChange) {
     fetch(`https://api.themoviedb.org/3/movie/${value}?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c`)
-    .then(res => res.json())
-    .then(data => {
-
-        let movies = data.results
-        let changer = Math.floor(Math.random() * movies.length)
-        let randomMovie = movies[changer];
-
-
-        if(shouldChange == 'true'){
-        headerImage.innerHTML = `  
-        <div class="header-content">
-            <div class="headImg">
-               <img src="https://image.tmdb.org/t/p/w1280${randomMovie.backdrop_path
-                }" alt="${randomMovie.title}">
-            </div>
-            <div class="header-text">
-             <div class="header-title">
-                    <h1>${randomMovie.title}</h1>
+      .then(res => res.json())
+      .then(data => {
+        const movies = data.results;
+        const changer = Math.floor(Math.random() * movies.length);
+        const randomMovie = movies[changer];
+  
+        if (shouldChange === 'true') {
+          headerImage.innerHTML = `
+            <div class="header-content">
+                <div class="headImg">
+                  <img src="https://image.tmdb.org/t/p/w1280${randomMovie.backdrop_path}" alt="${randomMovie.title}">
                 </div>
-                <div class="header-date">
-                    <p>${randomMovie.release_date
-                    }</p>
+                <div class="header-text">
+                    <div class="header-title">
+                        <h1>${randomMovie.title}</h1>
+                    </div>
+                    <div class="header-date">
+                        <p>${randomMovie.release_date}</p>
+                    </div>
+                    <div class="header-description">
+                        <p>${randomMovie.overview}</p>
+                    </div>
+                    <div class="header-btns">
+                        <button><i class="ri-play-fill"></i> Play</button>
+                        <button><i class="ri-add-line"></i> My List</button>
+                    </div>
                 </div>
-                <div class="header-description">
-                    <p>${randomMovie.overview}</p>
-                </div>
-            <div class="header-btns">
-                <button><i class="ri-play-fill"></i> Play</button>
-                <button><i class="ri-add-line"></i> My List</button>
             </div>
-            </div>
-        </div>
-        `
+          `;
         }
+  
 
+        $('.owl-carousel').trigger('destroy.owl.carousel');
+        $('.owl-carousel').html(''); 
+  
 
-        container.innerHTML = ''
-
-
-        movies.forEach(element => { 
+        movies.forEach(movie => {
+          if (movie.poster_path) {
             container.innerHTML += `
-                <div class="movie">
-               <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${element.title}">
-                <p class="movie-title">${element.title}</p>
-                </div>
-            `
+              <div class="movie item">
+                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+                <p class="movie-title">${movie.title}</p>
+              </div>
+            `;
+          }else {
+            console.log('dddddddddddddddddddddddddddddddddddd');
+            
+          }
         });
-
-
+  
 
         $('.owl-carousel').owlCarousel({
-            loop:true,
-            margin:10,
-            responsiveClass:true,
-            responsive:{
-              0:{ items:1, nav:true },
-              600:{ items:3, nav:false },
-              1000:{ items:5, nav:true, loop:false }
-            }
-          });
-        
-    })
-}
-
+          loop: false,
+          margin: 10,
+          responsiveClass: true,
+          responsive: {
+            0: { items: 1, nav: false },
+            600: { items: 3, nav: false },
+            1000: { items: 5, nav: false }
+          }
+        });
+      });
+  }
+  
 
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
