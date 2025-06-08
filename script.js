@@ -56,7 +56,6 @@ function getMovies(shouldChange) {
             container.innerHTML += `
               <div class="movie item">
                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-                <p class="movie-title">${movie.title}</p>
               </div>
             `;
           }else {
@@ -99,7 +98,6 @@ function getMovies(shouldChange) {
               upcoming.innerHTML += `
                 <div class="movie item">
                   <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-                  <p class="movie-title">${movie.title}</p>
                 </div>
               `;
             }else {
@@ -151,7 +149,6 @@ function getMovies(shouldChange) {
               topRated.innerHTML += `
                 <div class="movie item">
                   <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-                  <p class="movie-title">${movie.title}</p>
                 </div>
               `;
             }else {
@@ -201,7 +198,6 @@ function getMovies(shouldChange) {
               nowPlaying.innerHTML += `
                 <div class="movie item">
                   <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-                  <p class="movie-title">${movie.title}</p>
                 </div>
               `;
             }else {
