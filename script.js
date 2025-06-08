@@ -14,7 +14,25 @@ const searchBtn = document.getElementById('searchBtn')
 //     })
 // })
 
-let mainMoviesStorage = []
+let endPoint = [
+    'https://api.themoviedb.org/3/movie/popular?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c',
+    `https://api.themoviedb.org/3/movie/upcoming?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c`,
+    `https://api.themoviedb.org/3/movie/top_rated?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c`,
+    `https://api.themoviedb.org/3/movie/now_playing?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c`
+]
+
+Promise.all(endPoint.map((url)=>{
+    fetch(url)
+    .then(res => res.json())
+    .then(result =>{
+        console.log(result);
+        
+        // let combinedEndPoint = result.flat()
+        // localStorage.setItem('allEndPoint', JSON.stringify(combinedEndPoint))
+    })
+
+})
+)
 
 
 
@@ -23,11 +41,6 @@ function getMovies(shouldChange) {
       .then(res => res.json())
       .then(data => {
         const movies = data.results;
-
-
-        mainMoviesStorage.push([...mainMoviesStorage, movies])
-        console.log(mainMoviesStorage);
-
 
 
 
@@ -96,10 +109,11 @@ function getMovies(shouldChange) {
         //   }
         // });
       });
-  }
+  }  getMovies('true')
 
 
 
+  
   function upcomingMovies (){
 
 
@@ -107,8 +121,10 @@ function getMovies(shouldChange) {
     .then(res => res.json())
     .then(data => {
         const movies = data.results;
-        // mainMoviesStorage = [mainMoviesStorage, movies]
+        
+        // mainMoviesStorage = [...mainMoviesStorage, movies]
         // console.log(mainMoviesStorage);
+
 
 
         // $('.owl-carousel').trigger('destroy.owl.carousel');
@@ -143,10 +159,7 @@ function getMovies(shouldChange) {
     })
 
 
-  }
-
-
-
+  }  upcomingMovies()
 
 
 
@@ -194,7 +207,7 @@ function getMovies(shouldChange) {
     })
 
 
-  }
+  }  topRatedMovies()
 
 
 
@@ -243,17 +256,17 @@ function getMovies(shouldChange) {
     })
 
 
-  }
+  }  nowPlayingMovies()
 
 
 
   
 
   
-  getMovies('true')
-  upcomingMovies()
-  topRatedMovies()
-  nowPlayingMovies()
+
+
+
+
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
