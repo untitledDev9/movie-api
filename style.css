@@ -226,6 +226,31 @@ header {
 
 
 
+  .search-nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-nav i {
+    position: absolute;
+    left: 10px;
+    color: gray;
+    font-size: 18px;
+  }
+  
+  .search-nav input {
+    padding-left: 30px; /* Space for the icon */
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #0000002f;
+    color: #fff;
+  }
+  
+
+
+
 
 
 
