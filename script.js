@@ -4,6 +4,7 @@ const headerImage = document.getElementById('headerImage')
 const popular = document.querySelectorAll('.popular')
 const upcoming = document.getElementById('upcoming')
 const topRated = document.getElementById('topRated')
+const searchBtn = document.getElementById('searchBtn')
 
 
 //  popular.forEach(element => {
@@ -13,13 +14,26 @@ const topRated = document.getElementById('topRated')
 //     })
 // })
 
+let mainMoviesStorage = []
+
+
+
 function getMovies(shouldChange) {
     fetch(`https://api.themoviedb.org/3/movie/popular?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c`)
       .then(res => res.json())
       .then(data => {
         const movies = data.results;
+
+
+        mainMoviesStorage.push([...mainMoviesStorage, movies])
+        console.log(mainMoviesStorage);
+
+
+
+
         const changer = Math.floor(Math.random() * movies.length);
         const randomMovie = movies[changer];
+
 
 
         function fourLines(text, maxChars = randomMovie.overview.length) {
@@ -93,7 +107,8 @@ function getMovies(shouldChange) {
     .then(res => res.json())
     .then(data => {
         const movies = data.results;
-
+        // mainMoviesStorage = [mainMoviesStorage, movies]
+        // console.log(mainMoviesStorage);
 
 
         // $('.owl-carousel').trigger('destroy.owl.carousel');
@@ -124,7 +139,6 @@ function getMovies(shouldChange) {
         //     }
         //   });
 
-        console.log(data);
         
     })
 
@@ -144,7 +158,8 @@ function getMovies(shouldChange) {
     .then(res => res.json())
     .then(data => {
         const movies = data.results;
-
+        // mainMoviesStorage = [mainMoviesStorage, movies]
+        // console.log(mainMoviesStorage);
 
 
         // $('.owl-carousel').trigger('destroy.owl.carousel');
@@ -175,7 +190,6 @@ function getMovies(shouldChange) {
         //     }
         //   });
 
-        console.log(data);
         
     })
 
@@ -192,7 +206,8 @@ function getMovies(shouldChange) {
     .then(res => res.json())
     .then(data => {
         const movies = data.results;
-
+        // mainMoviesStorage = [mainMoviesStorage, movies]
+        // console.log(mainMoviesStorage);
 
 
         $('.owl-carousel').trigger('destroy.owl.carousel');
@@ -224,7 +239,6 @@ function getMovies(shouldChange) {
             }
           });
 
-        console.log(data);
         
     })
 
