@@ -275,13 +275,12 @@ header {
   display: flex;
   justify-content: end;
   align-items: left;
-  background-color: #f705ff;
+  width: 60%;
 }
 
 .header-title {
   width: 100%;
   text-align: left;
-  background-color: red;
 
 
   h1 {

@@ -20,6 +20,12 @@ function getMovies(shouldChange) {
         const movies = data.results;
         const changer = Math.floor(Math.random() * movies.length);
         const randomMovie = movies[changer];
+
+
+        function fourLines(text, maxChars = randomMovie.overview.length) {
+            return text.length > maxChars ? text.slice(0, maxChars) + '........' : text;
+          }
+          
   
         if (shouldChange === 'true') {
           headerImage.innerHTML = `
@@ -35,7 +41,7 @@ function getMovies(shouldChange) {
                         <p>${randomMovie.release_date}</p>
                     </div>
                     <div class="header-description">
-                        <p>${randomMovie.overview}</p>
+                    <p>${window.innerWidth <= 900 ? fourLines(randomMovie.overview, 100) : randomMovie.overview}</p>
                     </div>
                     <div class="header-btns">
                         <button><i class="ri-play-fill"></i> Play</button>
