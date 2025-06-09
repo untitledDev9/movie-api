@@ -5,6 +5,8 @@ const popular = document.querySelectorAll('.popular')
 const upcoming = document.getElementById('upcoming')
 const topRated = document.getElementById('topRated')
 const searchBtn = document.getElementById('searchBtn')
+const searchContent = document.getElementById('searchContent')
+
 
 
 //  popular.forEach(element => {
@@ -28,7 +30,7 @@ Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
         results.forEach(result => {
             allMovies = allMovies.concat(result.results)
         });
-        console.log('all movies fetched:', allMovies)
+        // console.log('all movies fetched:', allMovies)
     })
     .catch(error => console.error('Error fetching all movies:', error));
 // Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
@@ -39,6 +41,26 @@ Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
 //         console.log("All movies fetched:", allMovies);
 //     })
 //     .catch(error => console.error("Error fetching all movies:", error));
+
+
+
+searchBtn.addEventListener('input', ()=>{
+
+    let text = searchBtn.value.trim()
+    if(text.length > 1){
+        searchContent.innerHTML += `
+        <h1>ggggggggggggggggggggggggggggggggggggggggttttttttttttttttttttt</h1>
+        `
+
+        console.log(allMovies);
+        
+    }
+    
+})
+
+
+
+
 
 
 function getMovies(shouldChange) {
