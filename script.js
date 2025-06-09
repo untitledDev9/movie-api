@@ -14,6 +14,8 @@ const searchBtn = document.getElementById('searchBtn')
 //     })
 // })
 
+let allMovies = []
+
 let endPoint = [
     'https://api.themoviedb.org/3/movie/popular?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c',
     `https://api.themoviedb.org/3/movie/upcoming?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c`,
@@ -21,19 +23,22 @@ let endPoint = [
     `https://api.themoviedb.org/3/movie/now_playing?include_adult=false&language=en-US&page=1&api_key=1ef33d0988889fd4f6c374211d20e38c`
 ]
 
-Promise.all(endPoint.map((url)=>{
-    fetch(url)
-    .then(res => res.json())
-    .then(result =>{
-        console.log(result);
-        
-        // let combinedEndPoint = result.flat()
-        // localStorage.setItem('allEndPoint', JSON.stringify(combinedEndPoint))
+Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
+    .then(results => {
+        results.forEach(result => {
+            allMovies = allMovies.concat(result.results)
+        });
+        console.log('all movies fetched:', allMovies)
     })
-
-})
-)
-
+    .catch(error => console.error('Error fetching all movies:', error));
+// Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
+//     .then(results => {
+//         results.forEach(result => {
+//             allMovies = allMovies.concat(result.results);
+//         });
+//         console.log("All movies fetched:", allMovies);
+//     })
+//     .catch(error => console.error("Error fetching all movies:", error));
 
 
 function getMovies(shouldChange) {
