@@ -93,10 +93,6 @@ function getMovies(shouldChange) {
         const randomMovie = movies[changer];
 
 
-
-        function fourLines(text, maxChars = randomMovie.overview.length) {
-            return text.length > maxChars ? text.slice(0, maxChars) + '........' : text;
-          }
           
   
         if (shouldChange === 'true') {
@@ -113,7 +109,7 @@ function getMovies(shouldChange) {
                         <p>${randomMovie.release_date}</p>
                     </div>
                     <div class="header-description">
-                    <p>${fourLines(randomMovie.overview, 100)}</p>
+                    <p>${randomMovie.overview}</p>
                     </div>
                     <div class="header-btns">
                         <button><i class="ri-play-fill"></i> Play</button>
