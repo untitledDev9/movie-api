@@ -39,9 +39,14 @@ Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
     searchBtn.addEventListener('input', () => {
         const text = searchBtn.value.trim().toLowerCase();
         searchContent.innerHTML = '';
+        headerImage.innerHTML = '';
+        popular.innerHTML = '';
+        upcoming.innerHTML = '';
+        topRated.innerHTML = '';
+        nowPlaying.innerHTML = '';
       
         if (text.length > 0) {
-          searchContent.style.backgroundColor = 'red';
+          searchContent.style.backgroundColor = '#333';
       
           const filteredMovies = allMovies.filter(movie =>
             (movie.title || '').toLowerCase().includes(text)
@@ -63,6 +68,11 @@ Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
           }
         } else {
           searchContent.style.backgroundColor = 'transparent';
+          getMovies('true')
+          popular()
+          upcoming()
+          nowPlaying()
+          topRated()
         }
       });
       
