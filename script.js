@@ -38,19 +38,37 @@ Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
 
 searchBtn.addEventListener('input', ()=>{
 
-
-
     let text = searchBtn.value.trim()
-    if(text.length > 0){
-        searchContent.style.backgroundColor='red'
-        searchContent.innerHTML = `
-        <h1>ggggggggggggggggggggggggggggggggggggggggttttttttttttttttttttt</h1>
-        `
 
-        console.log(allMovies);
-    } else {
-        searchContent.innerHTML = ``
-        searchContent.style.backgroundColor='transparent'
+    searchContent.innerHTML = ''
+
+    if(text.length > 0){
+        searchContent.style.backgroundColor='#333'
+        // let searchedMovie = allMovies[0]
+
+        const filteredMovies = allMovies.filter(movie =>
+            movie.title.toLowerCase().includes(text)
+          );
+
+        filteredMovies.forEach(element => {
+            
+            searchContent.innerHTML +=  `
+            <div class="movie item">
+              <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${element.title}">
+            </div>
+          `;
+        })
+
+        // console.log(searchedMovie);
+    } 
+
+    if (filteredMovies.length === 0) {
+        searchContent.innerHTML = '<p style="color:white;">No matches found.</p>';
+      }
+    
+      else {
+      searchContent.style.backgroundColor = 'transparent';
+      searchContent.innerHTML = '';
     }
     
 })
