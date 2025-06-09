@@ -254,6 +254,13 @@ header {
     position: absolute;
     z-index: 5000000000000;
     overflow-y: auto; /* Only scrolls this if needed */
+    display: grid;
+    padding: 20px 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    .movie {
+      margin-bottom: 20px;
+    }
   }
   
 
