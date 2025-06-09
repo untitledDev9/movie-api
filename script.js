@@ -113,7 +113,7 @@ function getMovies(shouldChange) {
                         <p>${randomMovie.release_date}</p>
                     </div>
                     <div class="header-description">
-                    <p>${window.innerWidth <= 900 ? fourLines(randomMovie.overview, 100) : randomMovie.overview}</p>
+                    <p>${fourLines(randomMovie.overview, 100)}</p>
                     </div>
                     <div class="header-btns">
                         <button><i class="ri-play-fill"></i> Play</button>
