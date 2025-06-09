@@ -33,27 +33,24 @@ Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
         // console.log('all movies fetched:', allMovies)
     })
     .catch(error => console.error('Error fetching all movies:', error));
-// Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
-//     .then(results => {
-//         results.forEach(result => {
-//             allMovies = allMovies.concat(result.results);
-//         });
-//         console.log("All movies fetched:", allMovies);
-//     })
-//     .catch(error => console.error("Error fetching all movies:", error));
 
 
 
 searchBtn.addEventListener('input', ()=>{
 
+
+
     let text = searchBtn.value.trim()
-    if(text.length > 1){
-        searchContent.innerHTML += `
+    if(text.length > 0){
+        searchContent.style.backgroundColor='red'
+        searchContent.innerHTML = `
         <h1>ggggggggggggggggggggggggggggggggggggggggttttttttttttttttttttt</h1>
         `
 
         console.log(allMovies);
-        
+    } else {
+        searchContent.innerHTML = ``
+        searchContent.style.backgroundColor='transparent'
     }
     
 })
