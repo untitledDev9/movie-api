@@ -129,7 +129,10 @@ function getMovies(shouldChange) {
           if (movie.poster_path) {
             container.innerHTML += `
               <div class="movie item swiper">
-                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+              <div class="swiper-slide">
+              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+              </div>
+              <div class="swiper-pagination"></div>
               </div>
             `;
           }else {
@@ -271,7 +274,7 @@ function getMovies(shouldChange) {
         movies.forEach(movie => {
             if (movie.poster_path) {
               nowPlaying.innerHTML += `
-                <div class="movie item swiper-slide">
+                <div class="movie item swiper">
                   <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
                 </div>
               `;
