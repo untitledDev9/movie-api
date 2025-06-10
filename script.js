@@ -128,7 +128,7 @@ function getMovies(shouldChange) {
         movies.forEach(movie => {
           if (movie.poster_path) {
             container.innerHTML += `
-              <div class="movie item">
+              <div class="movie item swiper">
                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
               </div>
             `;
@@ -174,7 +174,7 @@ function getMovies(shouldChange) {
         movies.forEach(movie => {
             if (movie.poster_path) {
               upcoming.innerHTML += `
-                <div class="movie item">
+                <div class="movie item swiper">
                   <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
                 </div>
               `;
@@ -222,7 +222,7 @@ function getMovies(shouldChange) {
         movies.forEach(movie => {
             if (movie.poster_path) {
               topRated.innerHTML += `
-                <div class="movie item">
+                <div class="movie item swiper">
                   <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
                 </div>
               `;
@@ -264,14 +264,14 @@ function getMovies(shouldChange) {
         // console.log(mainMoviesStorage);
 
 
-        $('.owl-carousel').trigger('destroy.owl.carousel');
+        // $('.owl-carousel').trigger('destroy.owl.carousel');
      
         
 
         movies.forEach(movie => {
             if (movie.poster_path) {
               nowPlaying.innerHTML += `
-                <div class="movie item">
+                <div class="movie item swiper-slide">
                   <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
                 </div>
               `;
@@ -282,16 +282,16 @@ function getMovies(shouldChange) {
           });
 
 
-          $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            responsiveClass: true,
-            responsive: {
-              0: { items: 2.5, nav: false },
-              600: { items: 3, nav: false },
-              1000: { items: 5, nav: false }
-            }
-          });
+        //   $('.owl-carousel').owlCarousel({
+        //     loop: true,
+        //     margin: 10,
+        //     responsiveClass: true,
+        //     responsive: {
+        //       0: { items: 2.5, nav: false },
+        //       600: { items: 3, nav: false },
+        //       1000: { items: 5, nav: false }
+        //     }
+        //   });
 
         
     })
@@ -302,6 +302,28 @@ function getMovies(shouldChange) {
 
 
   
+
+//   const swiper = new Swiper('.swiper', {
+//     // Optional parameters
+//     direction: 'vertical',
+//     loop: true,
+  
+//     // If we need pagination
+//     pagination: {
+//       el: '.swiper-pagination',
+//     },
+  
+//     // Navigation arrows
+//     navigation: {
+//       nextEl: '.swiper-button-next',
+//       prevEl: '.swiper-button-prev',
+//     },
+  
+//     // And if we need scrollbar
+//     scrollbar: {
+//       el: '.swiper-scrollbar',
+//     },
+//   });
 
   
 
