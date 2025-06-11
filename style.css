@@ -11,6 +11,10 @@ body {
     background-color: #1f1f1f;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 .navbar nav{
     display: flex;
     justify-content: space-between;
@@ -272,12 +276,6 @@ header {
     }
   }
 
-
-  .swiper {
-    width: 200px;
-    height: 300px;
-  }
-  
 
 
 
