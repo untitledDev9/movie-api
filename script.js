@@ -159,9 +159,9 @@ function getMovies(shouldChange) {
           margin: 10,
           responsiveClass: false,
           responsive: {
-            0: { items: 2.5, nav: true },
-            600: { items: 3.5, nav: true },
-            1000: { items: 5.6, nav: true }
+            0: { items: 2.5, nav: false },
+            600: { items: 3.5, nav: false },
+            1000: { items: 5.6, nav: false }
           }
         });
         
