@@ -44,27 +44,28 @@ Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
         topRated.innerHTML = '';
         nowPlaying.innerHTML = '';
       
-        if (text.length > 0) {
+        if (text.length > 1) {
           searchContent.style.backgroundColor = '#333';
       
           const filteredMovies = allMovies.filter(movie =>
             (movie.title || '').toLowerCase().includes(text)
           );
       
-          if (filteredMovies.length > 0) {
-            filteredMovies.forEach(movie => {
-              searchContent.innerHTML += `
-                <div class="movie item">
-                  <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-                  <p class="movie-title">${movie.title}</p>
-                </div>`;
-            });
-          } else {
-            searchContent.innerHTML = `
-              <div style="color: white; text-align: center; padding: 1rem;">
-                No matches found.
-              </div>`;
-          }
+                  if (filteredMovies.length > 0) {
+                    filteredMovies.forEach(movie => {
+                      searchContent.innerHTML += `
+                        <div class="movie item">
+                          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+                          <p class="movie-title">${movie.title}</p>
+                        </div>`;
+                    });
+                  } else {
+                    searchContent.innerHTML = `
+                      <div style="color: white; text-align: center; padding: 1rem;">
+                        No matches found.
+                      </div>`;
+                  }
+                  
         } else {
           searchContent.style.backgroundColor = 'transparent';
           getMovies('true')
