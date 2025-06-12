@@ -263,7 +263,7 @@ header {
 
   #searchContent {
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     position: absolute;
     z-index: 5000000000000;
     overflow-y: auto; /* Only scrolls this if needed */
