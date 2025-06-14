@@ -65,7 +65,7 @@ Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
                         No matches found.
                       </div>`;
                   }
-                  
+
         } else {
           searchContent.style.backgroundColor = 'transparent';
           getMovies('true')
@@ -335,6 +335,32 @@ const navLinks = document.getElementById('navLinks');
 
 
 menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
+  // navLinks.classList.toggle('show');
 });
+
+
+
+
+
+
+
+
+
+
+// function aaaaa (){
+//   try{
+//   fetch('https://www.themoviedb.org/movie/278-the-shawshank-redemption')
+//   .then(res => res.json())
+//   .then(data => {
+//     console.log(data);
+    
+//   })
+// }
+//   catch(err){
+//     console.log(err);
+    
+//   }
+// }
+
+// aaaaa
 
