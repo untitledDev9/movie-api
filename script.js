@@ -347,20 +347,20 @@ menuToggle.addEventListener('click', () => {
 
 
 
-// function aaaaa (){
-//   try{
-//   fetch('https://www.themoviedb.org/movie/278-the-shawshank-redemption')
-//   .then(res => res.json())
-//   .then(data => {
-//     console.log(data);
+function aaaaa (){
+  try{
+  fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=2594b313a8dd028dd39fd6439a4b84a7')
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
     
-//   })
-// }
-//   catch(err){
-//     console.log(err);
+  })
+}
+  catch(err){
+    console.log(err);
     
-//   }
-// }
+  }
+}
 
-// aaaaa
+aaaaa()
 
