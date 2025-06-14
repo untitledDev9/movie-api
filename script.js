@@ -5,6 +5,7 @@ const upcoming = document.getElementById('upcoming')
 const topRated = document.getElementById('topRated')
 const searchBtn = document.getElementById('searchBtn')
 const searchContent = document.getElementById('searchContent')
+const trending = document.getElementById('trending')
 
 
 
@@ -43,6 +44,7 @@ Promise.all(endPoint.map(url => fetch(url).then(res => res.json())))
         upcoming.innerHTML = '';
         topRated.innerHTML = '';
         nowPlaying.innerHTML = '';
+        trending.innerHTML = '';
       
         if (text.length > 1) {
           searchContent.style.backgroundColor = '#333';
@@ -320,6 +322,56 @@ function getMovies(shouldChange) {
 
 
   }  nowPlayingMovies()
+
+
+
+
+  function trendingMovies (){
+
+
+    fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=2594b313a8dd028dd39fd6439a4b84a7`)
+    .then(res => res.json())
+    .then(data => {
+        const movies = data.results;
+        // mainMoviesStorage = [mainMoviesStorage, movies]
+        // console.log(mainMoviesStorage);
+
+
+        $('.owl-carousel').trigger('destroy.owl.carousel');
+        // $('.owl-carousel').html(''); 
+     
+        
+
+        movies.forEach(movie => {
+            if (movie.poster_path) {
+              trending.innerHTML += `
+                <div class="movie item">
+                  <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+                </div>
+              `;
+            }else {
+              console.log('dddddddddddddddddddddddddddddddddddd');
+              
+            }
+          });
+
+
+          $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            responsiveClass: true,
+            responsive: {
+              0: { items: 2.5, nav: false },
+              600: { items: 3, nav: false },
+              1000: { items: 5, nav: false }
+            }
+          });
+
+        
+    })
+
+
+  }  trendingMovies()
 
 
 
