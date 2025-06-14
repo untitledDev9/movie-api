@@ -335,7 +335,7 @@ const navLinks = document.getElementById('navLinks');
 
 
 menuToggle.addEventListener('click', () => {
-  // navLinks.classList.toggle('show');
+  navLinks.classList.toggle('show');
 });
 
 
